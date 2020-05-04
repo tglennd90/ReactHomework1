@@ -12,20 +12,20 @@ class App extends Component {
   }
 
   click = (id) => {
-    // console.log(id)
     let { clickedAvengers, score, avengers, topScore } = this.state;
 
     if (clickedAvengers.includes(id)) {
       console.log("Thanos has arrived, death is upon you.")
       clickedAvengers = []
       score = 0
-      topScore = this.state.score
+      
     } else {
       clickedAvengers.push(id)
       score++
-      topScore++
-      console.log(score)
-      console.log(topScore)
+      
+      if (score >= topScore) {
+        topScore++
+      } 
     }
 
     let avengerCount = avengers.length;
@@ -46,7 +46,6 @@ class App extends Component {
       avengers,
       topScore
     })
-    // console.log(this.state.clickedAvengers)
   }
 
   render() {
